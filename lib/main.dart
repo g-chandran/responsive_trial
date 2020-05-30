@@ -1,33 +1,19 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'responsive.dart/responsive_builder.dart';
+import 'ui/views/home/home_view.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(DevicePreview(enabled: !kReleaseMode, builder: (context) => MyApp()));
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      builder: DevicePreview.appBuilder,
       home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ResponsiveBuilder(
-      builder: (context, sizingInformation) {
-        return Scaffold(
-          body: Center(
-            child: Container(
-                margin: EdgeInsets.all(10),
-                child: Text(sizingInformation.getText())),
-          ),
-        );
-      },
     );
   }
 }

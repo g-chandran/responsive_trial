@@ -10,14 +10,16 @@ import 'tablet/home_view_tablet_portrait.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScreenTypeLayout(
-      mobile: OrientationLayout(
-        portrait: HomeViewMobilePortrait(),
-        landscape: HomeViewMobileLandscape(),
-      ),
-      tablet: OrientationLayout(
-        portrait: HomeViewTabletPortrait(),
-        landscape: HomeViewTabletLandscape(),
+    return Scaffold(
+      body: ScreenTypeLayout(
+        mobile: OrientationLayout(
+          portrait: HomeViewMobilePortrait(),
+          landscape: HomeViewMobileLandscape(),
+        ),
+        tablet: OrientationLayout(
+          portrait: HomeViewTabletPortrait(),
+          landscape: HomeViewTabletLandscape(),
+        ),
       ),
     );
   }
